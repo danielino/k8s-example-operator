@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-operator
+  namespace: example
+spec:
+  selector:
+    matchLabels:
+      app: example-operator
+  template:
+    metadata:
+      labels:
+        app: example-operator
+    spec:
+      serviceAccountName: example
+      containers:
+        - image: exampleoperator:latest
+          name: exampleop
+          imagePullPolicy: IfNotPresent

@@ -1,0 +1,9 @@
+apiVersion: example.com/v1alpha1
+kind: ExampleController
+metadata:
+  name: example
+  namespace: example
+  labels:
+    app: example
+spec:
+  name: example
