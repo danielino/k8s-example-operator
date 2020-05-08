@@ -3,6 +3,8 @@ import kopf
 import kubernetes
 import yaml
 
+CURRENT_API_VERSION = "v1alpha1"
+
 
 def get_deployment_template(name, namespace, app):
     return {
@@ -38,7 +40,8 @@ def get_deployment_template(name, namespace, app):
     }
 
 
-@kopf.on.create("example.com", "v1alpha1", "controllers")
+@kopf.on.resume("example.com", CURRENT_API_VERSION, "controllers")
+@kopf.on.create("example.com", CURRENT_API_VERSION, "controllers")
 def create_controller(body, spec, **kwargs):
     name = body['metadata']['name']
     namespace = body['metadata']['namespace']
