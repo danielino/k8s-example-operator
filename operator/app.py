@@ -27,7 +27,7 @@ def get_deployment_template(name, namespace, app):
                 'spec': {
                     'containers': [
                         {
-                            'image': 'exampleoperator:latest',
+                            'image': 'exampleapp:latest',
                             'imagePullPolicy': 'IfNotPresent',
                             'name': 'controller'
                         }
@@ -39,7 +39,7 @@ def get_deployment_template(name, namespace, app):
 
 
 @kopf.on.create("example.com", "v1alpha1", "controllers")
-def create_ixpcontroller(body, spec, **kwargs):
+def create_controller(body, spec, **kwargs):
     name = body['metadata']['name']
     namespace = body['metadata']['namespace']
     app = body['metadata']['labels']['app']

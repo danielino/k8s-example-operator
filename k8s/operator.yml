@@ -12,7 +12,7 @@ spec:
       labels:
         app: example-operator
     spec:
-      serviceAccountName: example
+      serviceAccountName: examplesa
       containers:
         - image: exampleoperator:latest
           name: exampleop

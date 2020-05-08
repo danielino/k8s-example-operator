@@ -6,4 +6,4 @@ RUN pip install -r requirements.txt
 
 COPY app.py /handlers.py 
 
-CMD kopf run --standalone /handlers.p
+CMD kopf run --standalone /handlers.py
